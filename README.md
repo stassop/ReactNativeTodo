@@ -12,7 +12,7 @@ So what are the qualities of good tests? Speed, isolation, and repeatability are
 
 ## Unit, integration or e2e?
 
-You have probably heard "Write tests. Not too many. Mostly integration." There are many different paradigms when it comes to testing, with varying degree of emphasis on unit, integration and e2e. But generally, when it comes to feasibility, speed, and working with continuously changing codebase, unit tests are your bread and butter.
+You have probably heard "Write tests. Not too many. Mostly integration." There are many different paradigms when it comes to testing, with varying degree of emphasis on unit, integration and e2e. But generally, when it comes to impact/effort and working with a continuously changing codebase, unit tests are your best friend.
 
 Unit tests allow you to test your code in small parts, are fast, can be written by all developers, and encourage developers to take responsibility for their work. But most importantly, unit tests cover the basic parts of your code, creating a secure base for higher-level tests, allowing them to be more simple and fast as well.
 
