@@ -141,7 +141,7 @@ it('Renders correctly when completed', () => {
 });
 ```
 
-Notice that `style` is just a plain object, we don't need to put it in `StyleSheet.create()`. Because `TestRenderer` returns an object, all of the component's props are objects too. Also, we just check if `Checkbox` has the correct props, without testing any of its implementation details here, because it's tested in a separate unit test.
+Notice that `style` is just a plain object, we don't need to put it in `StyleSheet.create()`. Because `TestRenderer` returns an object, all of the component's props are objects too. Also, we just check if `Checkbox` has the right props, without testing any of its implementation details here, because it's tested in a separate unit test.
 
 We expect the component to call the `onComplete` method when the checkbox is pressed:
 
@@ -165,7 +165,9 @@ it('Handles complete actions correctly', () => {
 });
 ```
 
-Todo also has a delete button, so we need to test if it calls the correct callback:
+Notice that we mock the `onComplete()` callback with `jest.fn()`. That's because in this particular test we don't care what happens after the function has been called, we just want to make sure that it gets called as expected and with the right params. What happens after is the subject of different tests.
+
+Todo also has a delete button, so we need to test if it calls the right callback:
 
 ```javascript
 it('Handles delete actions correctly', () => {
@@ -217,8 +219,8 @@ Some good tips for testing components:
 
 Useful links:
   * https://reactjs.org/docs/test-renderer.html
+  * https://jestjs.io/docs/en/mock-function-api
   * https://codeburst.io/revisiting-react-testing-in-2019-ee72bb5346f4
-  * https://itnext.io/testing-react-16-3-components-with-react-test-renderer-without-enzyme-d9c65d689e88
 
 ## Testing actions
 
@@ -573,7 +575,7 @@ it('Adds todos', async () => {
 });
 ```
 
-Testing if todo's get deleted correctly is, again, simple. Because we've already tested `Todo`, reducers, sagas etc., we just test if the API method gets called with the correct params when we call `onDelete()`. Since we have two todos, we expect to find only one when the DOM is updated.
+Testing if todo's get deleted correctly is, again, simple. Because we've already tested `Todo`, reducers, sagas etc., we just test if the API method gets called with the right params when we call `onDelete()`. Since we have two todos, we expect to find only one when the DOM is updated.
 
 ```javascript
 it('Deletes todos', async () => {
