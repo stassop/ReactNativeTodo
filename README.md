@@ -6,15 +6,15 @@ Writing tests can save you a lot of trouble down the road, and help you gain a p
 
 The ease of testing is one of the main advantages of React/Redux applications. Everything in React/Redux architecture is a plain JavaScript object at some point in its life cycle. So testing it is often as simple as parsing the object and checking its properties. So when you're not writing tests, you're missing out on one of the best features of your stack.
 
-## What are good tests?
-
-So what are the qualities of good tests? Speed, isolation, and repeatability are some of the ones often mentioned. It's also important to mention that good tests imitate real-life scenarios without creating redundancy. Simply checking if a component gets rendered often doesn't cut it. But testing every small detail of it can cause tests to fail after every minor change.
-
 ## Unit, integration or e2e?
 
 You have probably heard "Write tests. Not too many. Mostly integration." There are many different paradigms when it comes to testing, with varying degree of emphasis on unit, integration and e2e. But generally, when it comes to impact/effort and working with a continuously changing codebase, unit tests are your best friend.
 
 Unit tests allow you to test your code in small parts, are fast, can be written by all developers, and encourage developers to take responsibility for their work. But most importantly, unit tests cover the basic parts of your code, creating a secure base for higher-level tests, allowing them to be more simple and fast as well.
+
+## What are good tests?
+
+So what are the qualities of good tests? Speed, isolation, and repeatability are some of the ones often mentioned. It's also important to mention that good tests imitate real-life scenarios without creating redundancy. Simply checking if a component gets rendered often doesn't cut it. But testing every small detail of it can cause tests to fail after every minor change.
 
 ## Example todo app
 
