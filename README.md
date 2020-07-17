@@ -267,7 +267,7 @@ export const fetchTodosAsync = () => {
 };
 ```
 
-We mock the Api methods, dispatch an async action, and check if the store has received the right actions:
+We mock the Api methods the action relies on, dispatch an async action, and check if the store has received the right actions:
 
 ```javascript
 import thunk from 'redux-thunk';
