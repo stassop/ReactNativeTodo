@@ -234,7 +234,7 @@ export const addTodo = text => ({
 });
 ```
 
-To test an action, simply call the action creator function, and compare the result to the plain object you expect to get back:
+To test an action creator, simply call the function, and compare the result to the plain object you expect to get back:
 
 ```javascript
 import { addTodo } from '../../actions';
@@ -267,7 +267,7 @@ export const fetchTodosAsync = () => {
 };
 ```
 
-We stub and mock the API and store methods, and check if they've been called with expected arguments:
+We mock the Api methods, dispatch an async action, and check if the store has received the right actions:
 
 ```javascript
 import thunk from 'redux-thunk';
@@ -317,7 +317,7 @@ describe('fetchTodosAsync()', () => {
 });
 ```
 
-Notice that we don't care how the state mutates after the calls, that's a different test. Because this is a unit test, we only care about the calls being correct, and mock everything outside of its immediate concern. We do, however, resolve the Promise returned by the API, to allow the async action to make a full roundtrip call and resolve.
+Notice that we don't care how the state mutates after the calls, that's a different test. Here we only care about the right actions being dispatched in response to the calls, and mock everything else. We do, however, resolve the Promise returned by the Api, to allow the async action to make a full roundtrip call and resolve.
 
 We also call `toHaveBeenCalledWith()` without any arguments, because `Api.fetchTodos()` doesn't expect any.
 
@@ -506,7 +506,7 @@ jest.spyOn(LayoutAnimation, 'configureNext')
 
 ```
 
-We create a single `App` instance in this test because we want to preserve the state throughout the test. Also, we pass it a real store with reducers and middleware instead of a mock. However, we still mock our API calls because they are outside of our React/Redux scope.
+We create a single `App` instance in this test because we want to preserve the state throughout the test. Also, we pass it a real store with reducers and middleware instead of a mock. However, we still mock our Api calls because they are outside of our React/Redux scope.
 
 ```javascript
 describe('App', () => {
@@ -575,7 +575,7 @@ it('Adds todos', async () => {
 });
 ```
 
-Testing if todo's get deleted correctly is, again, simple. Because we've already tested `Todo`, reducers, sagas etc., we just test if the API method gets called with the right params when we call `onDelete()`. Since we have two todos, we expect to find only one when the DOM is updated.
+Testing if todo's get deleted correctly is, again, simple. Because we've already tested `Todo`, reducers, sagas etc., we just test if the Api method gets called with the right params when we call `onDelete()`. Since we have two todos, we expect to find only one when the DOM is updated.
 
 ```javascript
 it('Deletes todos', async () => {
