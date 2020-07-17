@@ -381,9 +381,9 @@ Also, notice that we're using actions creators that we tested earlier, so no nee
 
 ## Testing Redux Saga
 
-Although understanding Redux Saga can sometimes be challenging, testing it surprisingly easy. In fact, testability is one of its best features. Because sagas are essentially generator functions, and every saga effect (`put()`, `take()` etc.) returns a plain object, testing sagas is as simple as calling `next()`, and comparing the yielded result to the expected object.
+Although understanding Redux Saga can sometimes be challenging, testing it is surprisingly easy. In fact, testability is one of its best features. Because sagas are essentially generator functions, and every saga effect (`put()`, `take()` etc.) returns a plain object, testing sagas is as simple as calling `next()`, and comparing the yielded result to the expected object.
 
-Let's consider this saga that creates a channel that waits for `COMPLETE_TODO` actions, stores then in a buffer, and then handles them one by one sequentially. However, if `COMPLETE_TODO_CANCEL` arrives, the saga stops processing the buffered actions, and disposes of them.
+Let's consider a saga that creates an action channel that waits for `COMPLETE_TODO` actions, buffers then in a queue, and handles them one by one in the same order. If a `COMPLETE_TODO_CANCEL` action arrives, the saga stops, flushes the remaining queued actions, and returns to waiting for new `COMPLETE_TODO` actions. This code is slightly overengineered to make for a more interesting test case.
 
 ```javascript
 // sagas/index.js
@@ -401,7 +401,7 @@ export function* queueCompleteTodo() {
       cancel: take(COMPLETE_TODO_CANCEL)
     });
 
-    // If canceled, flush the queued actions
+    // If canceled, flush the remaining queued actions
     if (cancel) {
       const actions = yield flush(channel);
     }

@@ -68,7 +68,7 @@ export function* queueCompleteTodo() {
       cancel: take(COMPLETE_TODO_CANCEL)
     });
 
-    // If canceled, flush the queued actions
+    // If canceled, flush the remaining queued actions
     if (cancel) {
       const actions = yield flush(channel);
     }
