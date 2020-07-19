@@ -465,7 +465,7 @@ Useful links:
 
 ## Integration tests
 
-Integration tests are supposed to give us a bird's-eye view of the application, and to show whether it works correctly at the most basic level, without getting too deep into details. By this point we've already tested all of our components, actions, reducers etc. separately. Now we want to zoom out and see how they all work together as one.
+Integration tests are supposed to give us a bird's-eye view of the application, and check whether it works correctly at a high level, without getting too deep into the implementation details. By this point we've already tested all of our components, actions, reducers etc. separately. Now we want to zoom out and see how they all work together as one.
 
 First, let's import our dependencies and mock a few things the app expects to be there.
 
