@@ -165,7 +165,7 @@ it('Handles complete actions correctly', () => {
 });
 ```
 
-Notice that we mock the `onComplete()` callback with `jest.fn()`. That's because in this particular test we don't care what happens after the function has been called, we just want to make sure that it gets called as expected and with the right params. What happens after is the subject of different tests.
+Notice that we mock the `onComplete()` callback with `jest.fn()`. That's because in this particular test we don't care what happens after the function has been called (we do that in other tests), we just want to make sure that it gets called as expected and with the right params.
 
 Todo also has a delete button, so we need to test if it calls the right callback:
 
@@ -575,7 +575,7 @@ it('Adds todos', async () => {
 });
 ```
 
-Testing if todo's get deleted correctly is, again, simple. Because we've already tested `Todo`, reducers, sagas etc., we just test if the Api method gets called with the right params when we call `onDelete()`. Since we have two todos, we expect to find only one when the DOM is updated.
+Testing if todo's get deleted correctly is, again, simple. Because we've already tested `Todo`, reducers, sagas etc., we just test if the Api method gets called with the right params when we call `onDelete()`. Since we have two todos, we expect to find only one when the DOM gets updated.
 
 ```javascript
 it('Deletes todos', async () => {
