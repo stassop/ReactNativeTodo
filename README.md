@@ -381,9 +381,9 @@ Also, notice that we're using actions creators that we tested earlier, so no nee
 
 ## Testing Redux Saga
 
-Although understanding Redux Saga can sometimes be challenging, testing it is surprisingly easy. In fact, testability is one of its best features. Because sagas are essentially generator functions, and every saga effect (`put()`, `take()` etc.) returns a plain object, testing sagas is as simple as calling `next()`, and comparing the yielded result to the expected object.
+Although understanding Redux Saga can sometimes be challenging, testing it is surprisingly easy. In fact, testability is one of its best features. Because sagas are essentially generator functions, and every saga effect (`put()`, `take()` etc.) returns a plain object, testing sagas is as simple as calling `next()`, and checking if the yielded result is correct.
 
-Let's consider a saga that creates an action channel that waits for `COMPLETE_TODO` actions, buffers then in a queue, and handles them one by one in the same order. If a `COMPLETE_TODO_CANCEL` action arrives, the saga stops, flushes the remaining queued actions, and returns to waiting for new `COMPLETE_TODO` actions. This code is slightly overengineered to make for a more interesting test case.
+Let's consider a saga that creates an action channel that waits for `COMPLETE_TODO` actions, buffers then in a queue, and handles them one by one in the corresponding order. If a `COMPLETE_TODO_CANCEL` action arrives, the saga stops, flushes the remaining queued actions, and returns to waiting for new `COMPLETE_TODO` actions. This code is slightly overengineered to make for a more interesting test case.
 
 ```javascript
 // sagas/index.js
@@ -409,7 +409,7 @@ export function* queueCompleteTodo() {
 }
 ```
 
-If this looks confusing, just consider that every `next()` call generates an instruction for Redux Saga in the form of a plain object. Those instructions are only executed when passed to the store that is running Redux Saga middleware. So don't expect any calls outside of the saga. Just call `next()` and compare the resulting instruction object to the expected one.
+If this looks confusing, just consider that every `next()` call generates an instruction for Redux Saga in the form of a plain object. Those instructions are only executed when received by Redux Saga middleware, so when testing sagas in isolation, don't expect any effects to actually take place. Just call `next()` and compare the resulting instruction to the expected one.
 
 ```javascript
 import { channel } from 'redux-saga';
