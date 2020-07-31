@@ -37,7 +37,7 @@ So without further ado, let's get to it!
 
 ## Testing components
 
-Testing React components is a breeze with Jest and React Test Renderer. Because Virtual DOM tree is a an object, we can test our components by parsing the object and checking its properties. React Test Renderer converts components to plain JavaScript objects, without any native dependencies.
+Testing React components is a breeze with Jest and React Test Renderer. Because Virtual DOM tree is basically an object, we can test our components by parsing that object, and checking its properties. React Test Renderer converts components to plain JavaScript objects, without any native dependencies.
 
 Let's consider the following example:
 
