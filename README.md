@@ -37,7 +37,7 @@ So without further ado, let's get to it!
 
 ## Testing components
 
-Testing React components is a breeze with Jest and React Test Renderer. Because Virtual DOM tree is a an object, we can test our components by parsing the object and checking its properties. React Test Renderer converts components to plain JavaScript objects, without any native platform dependencies.
+Testing React components is a breeze with Jest and React Test Renderer. Because Virtual DOM tree is a an object, we can test our components by parsing the object and checking its properties. React Test Renderer converts components to plain JavaScript objects, without any native dependencies.
 
 Let's consider the following example:
 
@@ -141,7 +141,7 @@ it('Renders correctly when completed', () => {
 });
 ```
 
-Notice that `style` is just a plain object, we don't need to put it in `StyleSheet.create()`. Because `TestRenderer` returns an object, all of the component's props are objects too. Also, we just check if `Checkbox` has the right props, without testing any of its implementation details here, because it's tested in a separate unit test.
+Notice that `style` is just a plain object, we don't need to put it in `StyleSheet.create()`. Because `TestRenderer` returns an object, the rendered component's props are objects too. Also, we just check if `Checkbox` has the right props, without testing any of its implementation details, because it's tested in another unit test.
 
 We expect the component to call the `onComplete` method when the checkbox is pressed:
 
@@ -165,7 +165,7 @@ it('Handles complete actions correctly', () => {
 });
 ```
 
-Notice that we mock the `onComplete()` callback with `jest.fn()`. That's because in this particular test we don't care what happens after the function has been called (we do that in other tests), we just want to make sure that it gets called as expected and with the right params.
+Notice that we mock the `onComplete()` callback with `jest.fn()`. That's because in this particular test we don't care what happens after the function has been called (we do that in another test), we just want to make sure that it gets called as expected and with the right params.
 
 Todo also has a delete button, so we need to test if it calls the right callback:
 
