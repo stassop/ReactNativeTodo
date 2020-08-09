@@ -14,9 +14,9 @@ Unit tests allow you to test your code in small parts, are fast, can be written 
 
 ## What are good tests?
 
-So what are the qualities of good tests? Speed, isolation, and repeatability are some of the ones often named. It's also important to mention that good tests imitate real-life scenarios without creating redundancy. Simply checking if a component gets rendered won't cut it. But testing trivial details can cause tests to fail after any minor change.
+So what are the qualities of good tests? Speed, isolation, and repeatability are some of the ones often named. Also, good tests imitate real-life scenarios without creating redundancy. Simply checking if a component gets rendered probably won't cut it. But testing every trivial detail can cause tests to fail after any minor change.
 
-In short, the payoff should be greater than the cost of writing and maintaining your tests. After all, you'd rather be writing your app than tests. The tests are there to aid you in getting there with the minimal amount of setback. It's up to you, however, to figure out what tests would give you the most bang for your buck. 
+In short, the payoff should be greater than the cost of writing and maintaining your tests. After all, you'd rather be writing your app than tests. The tests are there to aid you in getting there with the minimal amount of setback. It's up to you, however, to figure out what tests would give you the most bang for your buck.
 
 ## Example todo app
 
