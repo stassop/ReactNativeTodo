@@ -4,7 +4,7 @@
 
 Writing tests can save you a lot of trouble down the road, and help you gain a peace of mind. Another, less obvious reason to write tests is that good tests reflect good architecture. When your application has a coherent structure, and a proper separation of concerns, writing tests for it should be a breeze.
 
-The ease of testing is one of the main advantages of React/Redux applications. Everything in React/Redux architecture is a plain JavaScript object at some point in its life cycle. So testing it is often as simple as parsing the object and checking its properties. So when you're not writing tests, you're missing out on one of the best features of your stack.
+The ease of testing is one of the main advantages of React/Redux applications. Everything in React/Redux architecture is a plain JavaScript object at some point in its life cycle. That makes testing as simple as parsing the object and checking its properties. So when you're not writing tests, you're missing out on one of the best features of your stack.
 
 ## Unit, integration or e2e?
 
@@ -14,7 +14,9 @@ Unit tests allow you to test your code in small parts, are fast, can be written 
 
 ## What are good tests?
 
-So what are the qualities of good tests? Speed, isolation, and repeatability are some of the ones often named. It's also important to mention that good tests imitate real-life scenarios without creating redundancy. Simply checking if a component gets rendered often doesn't cut it. But testing every rudimentary detail of it can cause tests to fail after every minor change.
+So what are the qualities of good tests? Speed, isolation, and repeatability are some of the ones often named. It's also important to mention that good tests imitate real-life scenarios without creating redundancy. Simply checking if a component gets rendered won't cut it. But testing trivial details can cause tests to fail after any minor change.
+
+In short, the payoff should be greater than the cost of writing and maintaining your tests. After all, you'd rather be writing your app than tests. The tests are there to aid you in getting there with the minimal amount of setback. It's up to you, however, to figure out what tests would give you the most bang for your buck. 
 
 ## Example todo app
 
@@ -214,7 +216,7 @@ Notice that we don't have any additional checks for `ActivityIndicator`. That's 
 
 Some good tips for testing components:
   * Keep it simple, don't overthink it, test only the things that matter
-  * Don't test styles unless it constitutes an essential part of the component logic
+  * Don't test styles unless it's essential the way the component works
   * Good code is testable code. If it isn't easy to test, consider changing your code
 
 Useful links:
