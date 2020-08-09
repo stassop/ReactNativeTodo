@@ -2,13 +2,13 @@
 
 ## Why write tests?
 
-Writing tests can save you a lot of trouble down the road, and help you gain a peace of mind. Another, less obvious reason to write tests is that good tests reflect good architecture. When your application has a coherent structure, and a proper separation of concerns, writing tests for it should be a breeze.
+Writing tests can save you a lot of trouble down the road, and help you gain a peace of mind. Another, less obvious reason to write tests is that good tests reflect good architecture. When your application has a coherent structure, proper separation of concerns, and follows best practices, writing tests for it should be a breeze.
 
 The ease of testing is one of the main advantages of React/Redux applications. Everything in React/Redux architecture is a plain JavaScript object at some point in its life cycle. That makes testing as simple as parsing the object and checking its properties. So when you're not writing tests, you're missing out on one of the best features of your stack.
 
 ## Unit, integration or e2e?
 
-You have probably heard "Write tests. Not too many. Mostly integration." There are many different paradigms when it comes to testing, with varying degree of emphasis on unit, integration and e2e. But generally, when it comes to impact/effort and working with a continuously changing codebase, unit tests are your best friend.
+You have probably heard "Write tests. Not too many. Mostly integration." There are many different paradigms when it comes to testing, with varying degree of emphasis on unit, integration and e2e. But generally, when it comes to impact/effort, and working with a continuously changing codebase, unit tests are your best friend.
 
 Unit tests allow you to test your code in small parts, are fast, can be written by all developers, and encourage developers to take responsibility for their work. But most importantly, unit tests cover the basic parts of your code, creating a secure base for higher-level tests, allowing them to be more simple and fast as well.
 
