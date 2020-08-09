@@ -1,4 +1,4 @@
-# TL;DR guide to React Native testing
+# TL;DR Guide to React Native Testing
 
 ## Why write tests?
 
