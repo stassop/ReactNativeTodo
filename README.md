@@ -35,7 +35,7 @@ react-native run-ios
 
 THE EXAMPLES BELOW CONTAIN ONLY A SMALL PORTION OF THE TESTS. SEE THE CODE FOR A COMPLETE OVERVIEW.
 
-So without further ado, let's get to it!
+So, without further ado, let's get to it!
 
 ## Testing Components
 
