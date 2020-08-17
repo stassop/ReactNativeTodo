@@ -1,24 +1,24 @@
 # TL;DR Guide to React Native Testing
 
-## Why write tests?
+## Why Write Tests?
 
 Writing tests can save you a lot of trouble down the road, and help you gain a peace of mind. Another, less obvious reason to write tests is that good tests reflect good architecture. When your application has a coherent structure, proper separation of concerns, and follows best practices, writing tests for it should be a breeze.
 
 The ease of testing is one of the main advantages of React/Redux applications. Everything in React/Redux architecture is a plain JavaScript object at some point in its life cycle. That makes testing as simple as parsing the object and checking its properties. So when you're not writing tests, you're missing out on one of the best features of your stack.
 
-## Unit, integration or e2e?
+## Unit, Integration or E2E?
 
 You have probably heard "Write tests. Not too many. Mostly integration." There are many different paradigms when it comes to testing, with varying degree of emphasis on unit, integration and e2e. But generally, when it comes to impact/effort, and working with a continuously changing codebase, unit tests are your best friend.
 
 Unit tests allow you to test your code in small parts, are fast, can be written by all developers, and encourage developers to take responsibility for their work. But most importantly, unit tests cover the basic parts of your code, creating a secure base for higher-level tests, allowing them to be more simple and fast as well.
 
-## What are good tests?
+## What Are Good Tests?
 
 So what are the qualities of good tests? Speed, isolation, and repeatability are some of the ones often named. Also, good tests imitate real-life scenarios without creating redundancy. Simply checking if a component gets rendered probably won't cut it. But testing trivial details can cause tests to fail after every minor change.
 
 In short, the payoff should be greater than the cost of writing and maintaining your tests. After all, you'd rather be writing your app than tests. The tests are there to aid you in getting there with the minimal amount of setback. It's up to you, however, to figure out what tests would give you the most bang for your buck.
 
-## Example todo app
+## Example Todo App
 
 So let's consider the above in the context of a simple todo app.
 
@@ -37,7 +37,7 @@ THE EXAMPLES BELOW CONTAIN ONLY A SMALL PORTION OF THE TESTS. SEE THE CODE FOR A
 
 So without further ado, let's get to it!
 
-## Testing components
+## Testing Components
 
 Testing React components is a breeze with Jest and React Test Renderer. Because Virtual DOM tree is basically an object, we can test our components by parsing that object, and checking its properties. React Test Renderer converts components to plain JavaScript objects, without any native dependencies.
 
@@ -224,7 +224,7 @@ Useful links:
   * https://jestjs.io/docs/en/mock-function-api
   * https://codeburst.io/revisiting-react-testing-in-2019-ee72bb5346f4
 
-## Testing actions
+## Testing Actions
 
 Action creator tests are generally very basic, but they allow us to rely on action creators in other tests without having to worry about their implementation.
 
@@ -253,7 +253,7 @@ describe('addTodo()', () => {
 
 That's all there is to it! Now we can safely use `addTodo()` in other tests!
 
-## Testing async actions (Redux Thunk)
+## Testing Async Actions (Redux Thunk)
 
 Testing async actions requires slightly more work, but is just as simple once you get the basic idea.
 
@@ -333,7 +333,7 @@ Useful links:
   * https://www.npmjs.com/package/redux-mock-store
   * https://redux.js.org/advanced/async-actions
 
-## Testing reducers
+## Testing Reducers
 
 Testing Redux reducers is as simple as calling a reducer function with an initial state and an action, and comparing the mutated state to the expected one.
 
@@ -465,7 +465,7 @@ Useful links:
   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
   * https://codeburst.io/understanding-generators-in-es6-javascript-with-examples-6728834016d5
 
-## Integration tests
+## Integration Tests
 
 Integration tests are supposed to give us a bird's-eye view of the application, and check whether it works correctly at a high level, without going too deep into detail. By this point we've already tested all of our components, actions, reducers etc. separately. Now we want to zoom out and see how they all work together as one.
 
