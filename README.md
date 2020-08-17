@@ -8,7 +8,7 @@ The ease of testing is one of the main advantages of React/Redux applications. E
 
 ## Unit, Integration or E2E?
 
-You have probably heard "Write tests. Not too many. Mostly integration." There are many different paradigms when it comes to testing, with varying degree of emphasis on unit, integration and e2e. But generally, when it comes to impact/effort, and working with a continuously changing codebase, unit tests are your best friend.
+You've probably heard "Write tests. Not too many. Mostly integration." There are many different paradigms when it comes to testing, with varying degree of emphasis on unit, integration and e2e. But generally, when it comes to impact/effort, and working with a continuously changing codebase, unit tests are your best friend.
 
 Unit tests allow you to test your code in small parts, are fast, can be written by all developers, and encourage developers to take responsibility for their work. But most importantly, unit tests cover the basic parts of your code, creating a secure base for higher-level tests, allowing them to be more simple and fast as well.
 
