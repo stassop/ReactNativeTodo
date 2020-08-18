@@ -613,4 +613,4 @@ Useful links:
 
 ## Summary
 
-This article is intended to provide a quick view of React Native testing basics, and is therefore by no mean complete, and skips over many topics. I strongly encourage you to explore other testing methods and tools, such as [Redux Saga Test Plan](https://github.com/jfairbank/redux-saga-test-plan) or [React Native Testing Library](https://github.com/callstack/react-native-testing-library), and pick the ones that best suit your project's needs.
+This article is intended to provide a quick view of React Native testing basics, and is therefore by no mean complete, and skips over many topics. I strongly encourage you to explore other testing techniques and tools, such as [snapshot testing](https://jestjs.io/docs/en/snapshot-testing), [Redux Saga Test Plan](https://github.com/jfairbank/redux-saga-test-plan) or [React Native Testing Library](https://github.com/callstack/react-native-testing-library), and pick the ones that best suit your project's needs.
