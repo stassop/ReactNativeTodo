@@ -220,9 +220,9 @@ Some tips for testing components:
   * Good code is testable code. If it isn't easy to test, consider changing your code
 
 Useful links:
+  * https://reactnative.dev/docs/testing-overview
   * https://reactjs.org/docs/test-renderer.html
   * https://jestjs.io/docs/en/mock-function-api
-  * https://codeburst.io/revisiting-react-testing-in-2019-ee72bb5346f4
 
 ## Testing Actions
 
@@ -328,7 +328,7 @@ Some tips for testing async actions:
 
 Useful links:
   * https://jestjs.io/docs/en/tutorial-async
-  * https://www.npmjs.com/package/redux-mock-store
+  * https://github.com/reduxjs/redux-mock-store
   * https://redux.js.org/advanced/async-actions
 
 ## Testing Reducers
