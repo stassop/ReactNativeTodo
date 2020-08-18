@@ -453,7 +453,7 @@ describe('queueCompleteTodo()', () => {
 
 Sometimes an effect can return a value, which can be used by the saga as a condition. Simply pass the expected return value to the following `next()` call as an argument.
 
-Here are some tips to make sagas more testable:
+Some tips to make sagas more testable:
   * Make every step of a saga an effect to make it testable
   * Split big sagas into multiple generator functions that can be tested separately
   * Good code is testable code. If it isn't easy to test, consider changing your code
