@@ -24,7 +24,7 @@ Let's consider the above in the context of a simple todo app.
 
 You can find the app here: https://github.com/stassop/reactnativetesting
 
-To run the app and tests:
+Clone the repo and run:
 
 ```
 npm install
