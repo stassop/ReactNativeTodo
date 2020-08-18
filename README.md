@@ -319,7 +319,7 @@ describe('fetchTodosAsync()', () => {
 });
 ```
 
-Notice that we don't care how the state mutates after the calls, that's a different test. Here we only care about the right actions being dispatched in response to the calls and mock everything else. We do, however, resolve the Promise returned by the Api, to allow the async action to make a full roundtrip call and resolve.
+Notice that we don't care how the state mutates after the calls, that's a different test. Here we only care about the right actions being dispatched in response to the calls and mock everything else. We do, however, resolve the promise returned by the Api, to allow the async action to make a full roundtrip call and resolve.
 
 Some tips for testing async actions:
   * Test only your action's logic and mock everything else
@@ -613,4 +613,4 @@ Useful links:
 
 ## Summary
 
-This article is intended to provide a quick overview of React Native testing basics, and is therefore by no means complete, and skips over many topics. I strongly encourage you to explore other testing techniques and tools, such as [snapshot testing](https://jestjs.io/docs/en/snapshot-testing), E2E testing with [Detox](https://github.com/wix/detox/), and [React Native Testing Library](https://github.com/callstack/react-native-testing-library), and pick the ones that best suit your project's needs.
+This article is intended to provide a quick overview of React Native testing basics, and is therefore by no means complete, and skips over many topics. I strongly encourage you to explore other testing techniques and tools, such as [snapshot testing](https://jestjs.io/docs/en/snapshot-testing), E2E testing with [Detox](https://github.com/wix/detox/), and [React Native Testing Library](https://github.com/callstack/react-native-testing-library), and pick the ones that best serves your project's needs.
