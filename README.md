@@ -607,6 +607,10 @@ Some tips for writing better integration tests:
   * Good code is testable code. If it isn't easy to test, consider changing your code
 
 Useful links:
+  * https://reactnative.dev/docs/testing-overview
   * https://jestjs.io/docs/en/setup-teardown#one-time-setup
   * https://reactjs.org/blog/2019/08/08/react-v16.9.0.html#async-act-for-testing
-  * https://itnext.io/react-redux-integration-tests-with-jest-enzyme-df9aa6effd13
+
+## Summary
+
+This article is intended to provide a quick view of React Native testing basics, and is therefore by no mean complete, and skips over many topics. I strongly encourage you to explore other testing methods and tools, such as [Redux Saga Test Plan](https://github.com/jfairbank/redux-saga-test-plan) or [React Native Testing Library](https://github.com/callstack/react-native-testing-library), and pick the ones that best suit your project's needs.
