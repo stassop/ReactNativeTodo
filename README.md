@@ -216,7 +216,7 @@ Notice that we don't have any additional checks for `ActivityIndicator`. That's 
 
 Some tips for testing components:
   * Keep it simple, don't overthink it, test only the things that matter
-  * Don't test styles unless it's essential the way the component works
+  * Don't test styles unless it's an essential part of how the component works
   * Good code is testable code. If it isn't easy to test, consider changing your code
 
 Useful links:
@@ -322,7 +322,7 @@ describe('fetchTodosAsync()', () => {
 Notice that we don't care how the state mutates after the calls, that's a different test. Here we only care about the right actions being dispatched in response to the calls and mock everything else. We do, however, resolve the Promise returned by the Api, to allow the async action to make a full roundtrip call and resolve.
 
 Some tips for testing async actions:
-  * Because it's a unit test, run it in isolation and use mocks
+  * Test only your action's logic and mock everything else
   * Use `redux-mock-store` to test if action calls get received by the store
   * Good code is testable code. If it isn't easy to test, consider changing your code
 
@@ -453,7 +453,7 @@ describe('queueCompleteTodo()', () => {
 
 Sometimes an effect can return a value, which can be used by the saga as a condition. Simply pass the expected return value to the following `next()` call as an argument.
 
-Some tips to make sagas more testable:
+Some tips for testing sagas:
   * Make every step of a saga an effect to make it testable
   * Split big sagas into multiple generator functions that can be tested separately
   * Good code is testable code. If it isn't easy to test, consider changing your code
@@ -602,7 +602,7 @@ it('Deletes todos', async () => {
 You'll find the rest of tests in the Git repo.
 
 Some tips for writing better integration tests:
-  * Don't test minor details, test the whole picture
+  * Don't test minor details, test the big picture
   * Make sure the DOM is updated before running checks
   * Good code is testable code. If it isn't easy to test, consider changing your code
 
