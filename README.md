@@ -2,15 +2,15 @@
 
 ## Why Write Tests?
 
-Writing tests can save you a lot of trouble down the road, and help you gain a peace of mind. Another, less obvious reason to write tests is that good tests reflect good architecture. When your application has a coherent structure, proper separation of concerns, and follows best practices, writing tests for it should be a breeze.
+Writing tests can save you a lot of trouble down the road and help you gain peace of mind. Another, less obvious reason is that good tests reflect good architecture. When your application has a coherent structure, proper separation of concerns, and follows best practices, writing tests should be a breeze.
 
-The ease of testing is one of the main advantages of React/Redux applications. Everything in React/Redux architecture is a plain JavaScript object at some point in its life cycle. That makes testing as simple as parsing the object and checking its properties. So when you're not writing tests, you're missing out on one of the best features of your stack.
+The ease of testing is one of the main advantages of React/Redux applications. Everything in React/Redux architecture is a plain JavaScript object at some point in its life cycle. That makes testing as simple as parsing the object and checking its properties. So when you're not writing tests, you're missing out on one of your stack's best features.
 
 ## Unit, Integration or E2E?
 
-You've probably heard "Write tests. Not too many. Mostly integration." There are many different paradigms when it comes to testing, with varying degree of emphasis on unit, integration and e2e. But generally, when it comes to impact/effort, and working with a continuously changing codebase, unit tests are your best friend.
+You’ve probably heard "Write tests. Not too many. Mostly integration." There are many different paradigms when it comes to testing, with varying degree of emphasis on unit, integration, and e2e. But generally, when it comes to impact/effort, and working with a continuously changing codebase, unit tests are your best friend.
 
-Unit tests allow you to test your code in small parts, are fast, can be written by all developers, and encourage developers to take responsibility for their work. But most importantly, unit tests cover the basic parts of your code, creating a secure base for higher-level tests, allowing them to be more simple and fast as well.
+Unit tests allow you to test your code in small parts, are fast, can be written by all developers, and encourage developers to take responsibility for their work. But most importantly, unit tests cover the basic parts of your code, creating a secure base for higher-level tests, allowing them to be simpler and faster too.
 
 ## What Are Good Tests?
 
@@ -33,13 +33,13 @@ node node/app.js
 react-native run-ios
 ```
 
-THE EXAMPLES BELOW CONTAIN ONLY A SMALL PORTION OF THE TESTS. SEE THE CODE FOR A COMPLETE OVERVIEW.
+NOTE: The examples below contain only a small portion of the tests. see the code for a complete overview.
 
 So, without further ado, let's get to it!
 
 ## Testing Components
 
-Testing React components is a breeze with Jest and React Test Renderer. Because Virtual DOM tree is basically an object, we can test our components by parsing that object, and checking its properties. React Test Renderer converts components to plain JavaScript objects, without any native dependencies.
+Testing React components is a breeze with Jest and React Test Renderer. Because the Virtual DOM tree is basically an object, we can test our components by parsing that object and checking its properties. React Test Renderer converts components to plain JavaScript objects, without any native dependencies.
 
 Let's consider the following example:
 
@@ -212,9 +212,9 @@ it('Renders correctly when in progress', () => {
 });
 ```
 
-Notice that we don't have any additional checks for `ActivityIndicator`. That's because `findByType()` expects to find exactly one instance, otherwise it will throw an error. In this case the selector is the test.
+Notice that we don't have any additional checks for `ActivityIndicator`. That's because `findByType()` expects to find exactly one instance, otherwise it will throw an error. In this case, the selector is the test.
 
-Some good tips for testing components:
+Some tips for testing components:
   * Keep it simple, don't overthink it, test only the things that matter
   * Don't test styles unless it's essential the way the component works
   * Good code is testable code. If it isn't easy to test, consider changing your code
@@ -255,7 +255,7 @@ That's all there is to it! Now we can safely use `addTodo()` in other tests!
 
 ## Testing Async Actions (Redux Thunk)
 
-Testing async actions requires slightly more work, but is just as simple once you get the basic idea.
+Testing async actions requires slightly more work but is just as simple once you get the basic idea.
 
 ```javascript
 // actions/index.js
@@ -309,7 +309,7 @@ describe('fetchTodosAsync()', () => {
       // The action async, so it has to complete before running tests
       .then(() => {
         // Expect the Api method to have been called
-        expect(fetchTodosMock).toHaveBeenCalledWith();
+        expect(fetchTodosMock).toHaveBeenCalled();
         // And correct actions to have been dispatched
         expect(store.getActions()).toStrictEqual(actions);
         // Restore the original method
@@ -319,11 +319,9 @@ describe('fetchTodosAsync()', () => {
 });
 ```
 
-Notice that we don't care how the state mutates after the calls, that's a different test. Here we only care about the right actions being dispatched in response to the calls, and mock everything else. We do, however, resolve the Promise returned by the Api, to allow the async action to make a full roundtrip call and resolve.
+Notice that we don't care how the state mutates after the calls, that's a different test. Here we only care about the right actions being dispatched in response to the calls and mock everything else. We do, however, resolve the Promise returned by the Api, to allow the async action to make a full roundtrip call and resolve.
 
-We also call `toHaveBeenCalledWith()` without any arguments, because `Api.fetchTodos()` doesn't expect any.
-
-Some good tips for testing async actions:
+Some tips for testing async actions:
   * Because it's a unit test, run it in isolation and use mocks
   * Use `redux-mock-store` to test if action calls get received by the store
   * Good code is testable code. If it isn't easy to test, consider changing your code
@@ -335,7 +333,7 @@ Useful links:
 
 ## Testing Reducers
 
-Testing Redux reducers is as simple as calling a reducer function with an initial state and an action, and comparing the mutated state to the expected one.
+Testing Redux reducers is as simple as calling a reducer function with an initial state and an action and comparing the mutated state to the expected one.
 
 ```javascript
 // reducers/index.js
@@ -379,13 +377,13 @@ describe('Main reducer', () => {
 
 Keep in mind that `toStrictEqual()` expects same object structure, not the same object.
 
-Also, notice that we're using actions creators that we tested earlier, so no need to test the action here.
+Also, notice that we're using action creators that we tested earlier, so no need to test the action here.
 
 ## Testing Redux Saga
 
-Although understanding Redux Saga can sometimes be challenging, testing it is surprisingly easy. In fact, testability is one of its best features. Because sagas are essentially generator functions, and every saga effect (`put()`, `take()` etc.) returns a plain object, testing sagas is as simple as calling `next()`, and checking if the yielded result is correct.
+Although understanding Redux Saga can sometimes be challenging, testing it is surprisingly easy. In fact, testability is one of its best features. Because sagas are essentially generator functions, and every saga effect (`put()`, `take()`, etc.) returns a plain object, testing sagas is as simple as calling `next()`, and checking if the yielded result is correct.
 
-Let's consider a saga that creates an action channel that waits for `COMPLETE_TODO` actions, buffers then in a queue, and handles them one by one in the corresponding order. If a `COMPLETE_TODO_CANCEL` action arrives, the saga stops, flushes the remaining queued actions, and returns to waiting for new `COMPLETE_TODO` actions. This code is slightly overengineered to make for a more interesting test case.
+Let's consider a saga that creates an action channel that waits for `COMPLETE_TODO` actions, buffers them in a queue, and handles them one by one in the corresponding order. If a `COMPLETE_TODO_CANCEL` action arrives, the saga stops, flushes the remaining queued actions, and returns to waiting for new `COMPLETE_TODO` actions. This code is slightly overengineered to make for a more interesting test case.
 
 ```javascript
 // sagas/index.js
@@ -467,7 +465,7 @@ Useful links:
 
 ## Integration Tests
 
-Integration tests are supposed to give us a bird's-eye view of the application, and check whether it works correctly at a high level, without going too deep into detail. By this point we've already tested all of our components, actions, reducers etc. separately. Now we want to zoom out and see how they all work together as one.
+Integration tests are supposed to give us a bird's-eye view of the application, and check whether it works correctly at a high level, without going too deep into detail. By this point, we've already tested all of our components, actions, reducers, etc. separately. Now we want to zoom out and see how they all work together as one.
 
 First, let's import our dependencies and mock a few things the app expects to be there.
 
@@ -540,7 +538,7 @@ describe('App', () => {
 });
 ```
 
-Notice that the `TestRenderer.create()` is called inside `TestRenderer.act()`, which is returned by `beforeAll()`. This is done to make `create()` async, and wait for it before running the tests. This ensures that all the initial hooks, mutations etc. take effect before the tests.
+Notice that the `TestRenderer.create()` is called inside `TestRenderer.act()`, which is returned by `beforeAll()`. This is done to make `create()` async, and wait for it before running the tests. This ensures that all the initial hooks, mutations, etc. take effect before the tests.
 
 The first test is quite small: we simply wanna check if todos are loaded when the component mounts.
 
@@ -577,7 +575,7 @@ it('Adds todos', async () => {
 });
 ```
 
-Testing if todo's get deleted correctly is, again, simple. Because we've already tested `Todo`, reducers, sagas etc., we just test if the Api method gets called with the right params when we call `onDelete()`. Since we have two todos, we expect to find only one when the DOM gets updated.
+Testing if todo's get deleted correctly is, again, simple. Because we've already tested `Todo`, reducers, sagas, etc., we just test if the Api method gets called with the right params when we call `onDelete()`. Since we have two todos, we expect to find only one when the DOM gets updated.
 
 ```javascript
 it('Deletes todos', async () => {
@@ -603,7 +601,7 @@ it('Deletes todos', async () => {
 
 You'll find the rest of tests in the Git repo.
 
-Some good tips for writing better integration tests:
+Some tips for writing better integration tests:
   * Don't test minor details, test the whole picture
   * Make sure the DOM is updated before running checks
   * Good code is testable code. If it isn't easy to test, consider changing your code
