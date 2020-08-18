@@ -20,7 +20,7 @@ In short, the payoff should be greater than the cost of writing and maintaining 
 
 ## Example Todo App
 
-So let's consider the above in the context of a simple todo app.
+Let's consider the above in the context of a simple todo app.
 
 You can find the app here: https://github.com/stassop/reactnativetesting
 
@@ -33,7 +33,7 @@ node node/app.js
 react-native run-ios
 ```
 
-NOTE: The examples below contain only a small portion of the tests. see the code for a complete overview.
+NOTE: The examples below contain only a small portion of the tests. See the code for a complete overview.
 
 So, without further ado, let's get to it!
 
