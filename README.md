@@ -323,7 +323,7 @@ Notice that we don't care how the state mutates after the calls, that's a differ
 
 Some tips for testing async actions:
   * Test only your action's logic and mock everything else
-  * Use `redux-mock-store` to test if action calls get received by the store
+  * Use `redux-mock-store` to test if actions get received by the store
   * Good code is testable code. If it isn't easy to test, consider changing your code
 
 Useful links:
