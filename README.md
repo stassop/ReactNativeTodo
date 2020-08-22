@@ -255,7 +255,7 @@ That's all there is to it! Now we can safely use `addTodo()` in other tests!
 
 ## Testing Async Actions (Redux Thunk)
 
-Testing async actions requires slightly more work but is just as simple once you get the basic idea.
+Testing async actions requires slightly more work but is just as simple once you get the idea.
 
 ```javascript
 // actions/index.js
