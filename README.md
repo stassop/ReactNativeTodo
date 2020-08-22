@@ -540,7 +540,7 @@ describe('App', () => {
 
 Notice that the `TestRenderer.create()` is called inside `TestRenderer.act()`, which is returned by `beforeAll()`. This is done to make `create()` async, and wait for it before running the tests. This ensures that all the initial hooks, mutations, etc. take effect before the tests.
 
-The first test is quite small: we simply wanna check if todos are loaded when the component mounts.
+The first test is very basic: we simply wanna check if todos are loaded when the component mounts.
 
 ```javascript
 it('Loads todos', () => {
