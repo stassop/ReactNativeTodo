@@ -4,13 +4,13 @@
 
 Writing tests can help you make your app more robust, your team happier, and save you a lot of time in the long term. Another, less obvious reason is that good tests reflect good architecture. When your code has a coherent structure, proper separation of concerns, and follows conventions, writing tests should be a breeze.
 
-The ease of testing is one of the best parts React/Redux architecture. Everything in React/Redux is a plain JavaScript object at some point. That makes testing it as simple as checking its properties. So when you're not writing tests for your React Native app you're missing out on one of its best features.
+The ease of testing is one of the best parts of React/Redux architecture. Everything in React/Redux is a plain JavaScript object at some point. That makes testing it as simple as checking its properties. So when you're not writing tests for your React Native app you're missing out on one of its best features.
 
 ## Unit, Integration or End-to-end?
 
 You've probably heard "Write tests. Not too many. Mostly integration." There are many different paradigms when it comes to testing, with varying emphasis on unit, integration, and end-to-end. But generally speaking, when it comes to impact/effort and working with a continuously changing codebase, unit tests are your best bet.
 
-Unit tests make it possible to test different parts of your app independently, are fast, easy to maintain, and incentivise developers to take responsibility for their work. But more importantly, unit tests cover the basic parts of your code, creating a solid foundation for higher-level tests (e.g. integration) making them simpler and more focused.
+Unit tests make it possible to test different parts of your app independently, are fast, easy to maintain, and incentivise developers to take responsibility for their work. But more importantly, unit tests cover the basic building blocks of your code, creating a solid foundation for higher-level tests (e.g. integration) making them simpler and more focused.
 
 ## What Are Good Tests?
 
@@ -141,7 +141,7 @@ You can find the rest of the action tests [here](https://github.com/stassop/Reac
 
 ## Testing Reducers
 
-Because Redux reducers are just pure functions, to test them simply call them with an initial state and an action, and check the resulting state.
+Because Redux reducers are just [pure functions](https://en.wikipedia.org/wiki/Pure_function), to test them simply call them with an initial state and an action, and check the resulting state.
 
 ```
 // reducers.test.js
@@ -265,7 +265,7 @@ You can find the rest of the integration tests [here](https://github.com/stassop
 
 ## Conclusion
 
-Don't overthink tests, they are supposed to be a complement to your app, not a maintenance burden. Start writing tests from the ground up, gradually moving from the basic parts of your app to more complex ones. And remember, good code is testable code. If something is tricky to test, it could be a clue that it has to be split up into more atomic parts.
+Don't overthink tests, they are supposed to be a complement to your app, not a maintenance burden. Start writing tests from the ground up, gradually moving from the basic building blocks of your app to more complex ones. And remember, good code is testable code. If something is tricky to test, it could be a clue that it has to be split up into more atomic parts.
 
 This article is intended to glance over React Native testing, and therefore is by no means complete. I strongly recommend you to explore other testing techniques and tools such as [Snapshot Testing](https://jestjs.io/docs/snapshot-testing), [Detox](https://github.com/wix/Detox), [React Native Testing Library](https://github.com/callstack/react-native-testing-library), and choose the ones that best suit your project.
 
