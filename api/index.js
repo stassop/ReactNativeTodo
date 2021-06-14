@@ -1,4 +1,4 @@
-import * as Api from './'; // Use alias so asyncRequest() can be mocked in tests
+import * as Api from './';
 
 export const GET = 'GET', POST = 'POST';
 
@@ -20,6 +20,8 @@ export const asyncRequest = (method = GET, path = '', body = {}) => {
       .catch(error => reject(error));
   });
 };
+
+// Use Api.asyncRequest() so it can be mocked in tests
 
 export const fetchTodos = () => Api.asyncRequest();
 
