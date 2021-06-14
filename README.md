@@ -14,7 +14,7 @@ Unit tests make it possible to test different parts of your app independently, a
 
 ## What Are Good Tests?
 
-So what makes good tests? Speed, isolation, and repeatability are some of the things often mentioned. Also, good tests imitate real case scenarios without creating complexity. Simply checking if a component gets rendered probably won't cut it, but testing every detail of a component's implementation is likely to make your tests slow and fragile.
+So what makes good tests? Speed, isolation, and repeatability are some of the things often mentioned. Also, good tests simulate real case scenarios without creating complexity. Simply checking if a component gets rendered probably won't cut it, but testing every detail of a component's implementation is likely to make your tests slow and fragile.
 
 Simply put, the payoff should always be greater than the cost of writing and maintaining your tests. After all, you'd rather be writing your app than tests. The tests are meant to help you get there safer, faster, and with a minimal amount of setback. So while writings tests can make your code more robust, don't waste your time trying to cover every detail.
 
