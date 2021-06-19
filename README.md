@@ -45,7 +45,7 @@ Testing React Native components is a breeze with [Jest](https://jestjs.io/) and 
 
 When testing components, don't get carried away with details. Only test things the component's core functionality depends on, e.g. rendering other components, dispatching actions etc. Avoid testing things that aren't vital for the component's behaviour and/or can change often.
 
-Consider this simple [Todo component](https://github.com/stassop/ReactNativeTodo/blob/master/components/Todo.js). It does two things: toggling the todo's done state and deleting the todo. Because it's a unit test it should be agnostic about its context. So we spy on the component's internal functions and mock everything outside of it (keep in mind this is a snippet from a [bigger file](https://github.com/stassop/ReactNativeTodo/blob/master/__tests__/components/Todo.test.js)):
+Consider this simple [Todo component](https://github.com/stassop/ReactNativeTodo/blob/master/components/Todo.js). It does two things: toggling the todo's done state and deleting the todo. Because this is a unit test it should be agnostic about its context, so it spies on the component's internal functions and mocks everything outside of it (keep in mind this is a snippet from a [bigger file](https://github.com/stassop/ReactNativeTodo/blob/master/__tests__/components/Todo.test.js)):
 
 ```
 // Todo.test.js
@@ -190,7 +190,7 @@ You can find the rest of the saga tests [here](https://github.com/stassop/ReactN
 
 ## Integration Tests
 
-Integration tests are meant to check if all the parts of our app work together as one. They provide a high-level overview without going into details. We create a single instance of the App component, together with all its constituents (e.g. reducers, sagas, etc.), to preserve its state throughout the tests. The only thing mocked here are the API endpoints because they are outside of the React/Redux scope.
+Integration tests are meant to check if all the parts of our app work together as one. They provide a high-level overview without going into details. Here a single instance of the App component is created, together with all of its constituents (reducers, sagas, etc.), to preserve its state throughout the tests. The only thing mocked here are the API endpoints because they are outside of the React/Redux scope.
 
 ```
 import React from 'react';
@@ -237,7 +237,7 @@ describe('App', () => {
 });
 ```
 
-Now we can call a component method to simulate user action, and expect it to take effect after it gets processed by sagas, reducers etc.
+Now call the component's methods to simulate user actions, and expect them to take effect after they get processed by sagas, reducers etc.
 
 ```
 it('Creates todos', async () => {
