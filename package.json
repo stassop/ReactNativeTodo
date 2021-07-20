@@ -14,7 +14,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "react": "17.0.1",
-    "react-native": "0.64.0",
+    "react-native": "0.64.1",
     "react-native-rename": "^2.9.0",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
